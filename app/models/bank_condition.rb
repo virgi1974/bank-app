@@ -1,7 +1,7 @@
 class BankCondition < ApplicationRecord
   belongs_to :bank
 
-  TRANSACTION_TYPES = ["INTERNAL", "EXTERNAL"].freeze
+  TRANSACTION_TYPES = ['INTERNAL', 'EXTERNAL'].freeze
 
   validates :external_bank_number, presence: true
   validates :commission, presence: true, numericality: true
