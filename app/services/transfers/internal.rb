@@ -10,6 +10,7 @@ module Transfers
     def initialize(required_params)
       @account_from = Account.find_by(account_number: required_params[:account_from])
       @account_to = Account.find_by(account_number: required_params[:account_to])
+      @bank_from_code = @account_from&.customer&.bank&.bank_number
       @amount = required_params[:amount]
       @errors = []
     end
@@ -72,7 +73,9 @@ module Transfers
 
     def create_account_transaction(accounts_updated)
       account_transaction = AccountTransaction.new(account_id: @account_from.id,
-                                                   related_account: @account_to.account_number,
+                                                   bank_to_account: @account_to.account_number,
+                                                   bank_to_code: @bank_from_code,
+                                                   bank_from_code: @bank_from_code,
                                                    transaction_type: 'INTERNAL',
                                                    status: 'PENDING',
                                                    transefered_amount: @amount.to_d)

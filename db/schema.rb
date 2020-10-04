@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_185023) do
+ActiveRecord::Schema.define(version: 2020_10_04_151733) do
 
   create_table "account_transactions", force: :cascade do |t|
     t.integer "account_id"
-    t.string "related_account"
+    t.string "bank_to_account"
     t.string "transaction_type"
     t.string "status"
     t.decimal "transefered_amount", precision: 10, scale: 5
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bank_to_code"
+    t.string "bank_from_code"
     t.index ["account_id"], name: "index_account_transactions_on_account_id"
   end
 

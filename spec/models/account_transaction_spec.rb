@@ -9,4 +9,6 @@ RSpec.describe AccountTransaction, type: :model do
   it { is_expected.to validate_inclusion_of(:status).in_array(AccountTransaction::STATUS_TYPES) }
   it { should validate_numericality_of(:transefered_amount) }
   it { should validate_presence_of(:transefered_amount) }
+  it { should validate_presence_of(:bank_from_code) }
+  it { should validate_presence_of(:bank_to_code) }
 end

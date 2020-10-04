@@ -75,7 +75,7 @@ RSpec.describe Transfers::Internal, type: :model do
       transaction = AccountTransaction.first
 
       expect(transaction.account_id).to be @account.id
-      expect(transaction.related_account).to eq account_to.account_number
+      expect(transaction.bank_to_account).to eq account_to.account_number
       expect(transaction.transaction_type).to eq 'INTERNAL'
       expect(transaction.status).to eq 'KO'
       expect(transaction.transefered_amount).to eq amount
@@ -116,7 +116,7 @@ RSpec.describe Transfers::Internal, type: :model do
       transaction = AccountTransaction.first
 
       expect(transaction.account_id).to be @account.id
-      expect(transaction.related_account).to eq @account_to.account_number
+      expect(transaction.bank_to_account).to eq @account_to.account_number
       expect(transaction.transaction_type).to eq 'INTERNAL'
       expect(transaction.status).to eq 'OK'
       expect(transaction.transefered_amount).to eq @amount
