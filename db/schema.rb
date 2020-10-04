@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_084313) do
+ActiveRecord::Schema.define(version: 2020_10_03_185023) do
 
   create_table "account_transactions", force: :cascade do |t|
     t.integer "account_id"
     t.string "related_account"
     t.string "transaction_type"
     t.string "status"
-    t.decimal "transefered_amount"
+    t.decimal "transefered_amount", precision: 10, scale: 5
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_account_transactions_on_account_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_084313) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer "customer_id"
-    t.decimal "balance", default: "0.0"
+    t.decimal "balance", precision: 10, scale: 5, default: "0.0"
     t.string "account_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2020_10_03_084313) do
   create_table "bank_conditions", force: :cascade do |t|
     t.integer "bank_id"
     t.string "external_bank_number"
-    t.decimal "commission", default: "0.0"
-    t.decimal "max_amount", default: "1000.0"
-    t.decimal "min_amount", default: "1.0"
+    t.decimal "commission", precision: 10, scale: 5, default: "0.0"
+    t.decimal "max_amount", precision: 10, scale: 5, default: "1000.0"
+    t.decimal "min_amount", precision: 10, scale: 5, default: "1.0"
     t.string "transaction_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
