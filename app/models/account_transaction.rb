@@ -10,6 +10,8 @@ class AccountTransaction < ApplicationRecord
   validates :status, presence: true
   validates :status, inclusion: { in: STATUS_TYPES }
   validates :transefered_amount, presence: true, numericality: true
+  validates :bank_from_code, presence: true
+  validates :bank_to_code, presence: true
 
   def update_as_ok
     self.status = 'OK'
