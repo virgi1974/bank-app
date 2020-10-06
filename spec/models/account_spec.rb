@@ -9,6 +9,7 @@ RSpec.describe Account, type: :model do
     it { should validate_presence_of(:balance) }
     it { should validate_numericality_of(:balance) }
     it { should validate_presence_of(:account_number) }
+    it { should validate_uniqueness_of(:account_number) }
   end
 
   # let(:partner_unavailable) { Partner.create! name: partner_name,

@@ -6,4 +6,5 @@ RSpec.describe Bank, type: :model do
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:bank_number) }
+  it { should validate_uniqueness_of(:bank_number) }
 end

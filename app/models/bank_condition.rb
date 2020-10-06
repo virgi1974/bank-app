@@ -9,4 +9,6 @@ class BankCondition < ApplicationRecord
   validates :min_amount, presence: true, numericality: true
   validates :transaction_type, presence: true
   validates :transaction_type, inclusion: { in: TRANSACTION_TYPES }
+
+  validates :bank_id, uniqueness: { scope: :external_bank_number }
 end
