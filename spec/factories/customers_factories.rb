@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :customer, class: Customer do
   	association :bank
     first_name 'Juan'

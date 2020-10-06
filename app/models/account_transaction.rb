@@ -14,13 +14,27 @@ class AccountTransaction < ApplicationRecord
   validates :bank_to_code, presence: true
 
   def update_as_ok
-    self.status = 'OK'
-    self.save
+    update_attributes(status: 'OK')
   end
 
   def update_as_ko
-    self.status = 'KO'
-    self.save
+    update_attributes(status: 'KO')
+  end
+
+  def external_pending_transaction?
+    self.transaction_type == 'EXTERNAL' && self.status == 'PENDING'
+  end
+
+  def from_pending_to_ok
+    bank_from = account&.customer&.bank
+    bank_from_condition = bank_from.bank_conditions.where(external_bank_number: bank_to_code).first
+
+    amount_to_withdraw = transefered_amount + bank_from_condition.commission
+    update_as_ok if account.withdraw(amount_to_withdraw)
+  end
+
+  def from_pending_to_ko
+    update_as_ko
   end
 
   private
