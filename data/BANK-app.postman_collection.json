@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "68e21744-ea85-4e1a-9b6f-99496815c958",
+		"name": "BANK-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BANK-A INTERNAL TRANSACTION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"account_from\": \"8793744742\",\n\t\"account_to\": \"4353059298\",\n\t\"amount\": \"80\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/accounts/internal_transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"internal_transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BANK-A EXTERNAL TRANSACTION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bank_from_account\": \"8793744742\",\n\t\"bank_to_account\": \"0212354017\",\n\t\"bank_to_code\": \"2200\",\n\t\"amount\": \"500\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/accounts/external_transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"external_transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BANK-B INTERNAL TRANSACTION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"account_from\": \"0212354017\",\n\t\"account_to\": \"3076709883\",\n\t\"amount\": \"20000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/accounts/internal_transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"internal_transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BANK-B EXTERNAL TRANSACTION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bank_from_account\": \"0212354017\",\n\t\"bank_to_account\": \"8793744742\",\n\t\"bank_to_code\": \"2500\",\n\t\"amount\": \"1.0\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/accounts/external_transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"external_transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BANK-A TRANSACTIONS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bank_from_account\": \"2807881683\",\n\t\"bank_to_account\": \"0858659575\",\n\t\"bank_to_code\": \"2200\",\n\t\"amount\": \"500\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BANK-B TRANSACTIONS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bank_from_account\": \"2807881683\",\n\t\"bank_to_account\": \"0858659575\",\n\t\"bank_to_code\": \"2200\",\n\t\"amount\": \"500\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/transactions/external",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"transactions",
+						"external"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
