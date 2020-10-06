@@ -11,6 +11,12 @@ module Api
         compose_transfer_response(errors, 'external')
       end
 
+      def incoming_transaction
+        errors = ::Transfers::Incoming.new(incoming_transfer_params).call
+        compose_transfer_response(errors, 'incoming')
+        render status: 200, json: @response.to_json
+      end
+
       private
 
       def internal_transfer_params
@@ -26,13 +32,22 @@ module Api
                       :amount)
       end
 
+      def incoming_transfer_params
+        params.permit(:bank_from_code,
+                      :bank_to_code,
+                      :bank_to_account,
+                      :transefered_amount)
+      end
+
       def compose_transfer_response(errors, type)
         @response = {}
         if errors.empty?
           @response[:message] = "#{type} transfer was successfull"
+          @response[:result] = "OK"
         else
           @response[:message] = "#{type} transfer failed"
           @response[:errors] = errors[0]
+          @response[:result] = "KO"
         end
         @response[:status] = 200
       end

@@ -1,7 +1,7 @@
 class AccountTransaction < ApplicationRecord
   belongs_to :account
 
-  TRANSACTION_TYPES = ['INTERNAL', 'EXTERNAL'].freeze
+  TRANSACTION_TYPES = ['INTERNAL', 'EXTERNAL', 'INCOMING'].freeze
   STATUS_TYPES = ['OK', 'KO', 'PENDING'].freeze
 
   validates :bank_to_account, presence: true
