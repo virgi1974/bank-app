@@ -1,0 +1,10 @@
+json.id								 			transaction.id
+json.account_id							transaction.account_id
+json.bank_from_code					transaction.bank_from_code
+json.bank_to_account				transaction.bank_to_account
+json.bank_to_code						transaction.bank_to_code
+json.transaction_type				transaction.transaction_type
+json.status								  transaction.status
+json.transefered_amount			transaction.transefered_amount.to_f
+json.created_at							transaction.created_at
+json.updated_at							transaction.updated_at
