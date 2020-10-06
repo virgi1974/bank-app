@@ -71,6 +71,8 @@ RSpec.describe Transfers::External, type: :model do
     end
 
     it 'creates a KO transaction' do
+      allow_any_instance_of(Client::Bank).to receive(:confirm_transaction).and_return("{\"message\":{\"result\":\"KO\"}}")
+
       amount = BigDecimal(10)
       params_attr = {bank_from_account: @account.account_number, bank_to_account: 'xxxxxxxxx', amount: amount, bank_to_code: @bank_condition.external_bank_number}
 
