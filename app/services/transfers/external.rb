@@ -91,7 +91,7 @@ module Transfers
     end
 
     def ta_confirm_transaction(account_transaction)
-      ta_client = Client::Ta.new(account_transaction)
+      ta_client = Client::Bank.new(account_transaction)
       response = ta_client.confirm_transaction
       parsed_response = JSON.parse(response)
 

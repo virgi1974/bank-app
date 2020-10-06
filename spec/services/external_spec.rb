@@ -97,7 +97,7 @@ RSpec.describe Transfers::External, type: :model do
 
       @amount = 5.to_d
       @params_attr = {bank_from_account: @account.account_number, bank_to_account: @account_to.account_number, amount: @amount, bank_to_code: @bank_condition.external_bank_number}
-      allow_any_instance_of(Client::Ta).to receive(:confirm_transaction).and_return("{\"message\":{\"result\":\"OK\"}}")
+      allow_any_instance_of(Client::Bank).to receive(:confirm_transaction).and_return("{\"message\":{\"result\":\"OK\"}}")
     end
 
     it 'returns an empty array for errors' do
@@ -106,7 +106,7 @@ RSpec.describe Transfers::External, type: :model do
     end
 
     it 'creates a OK transaction' do
-      allow_any_instance_of(Client::Ta).to receive(:confirm_transaction).and_return("{\"message\":{\"result\":\"OK\"}}")
+      allow_any_instance_of(Client::Bank).to receive(:confirm_transaction).and_return("{\"message\":{\"result\":\"OK\"}}")
 
       amount = 5.to_d
       params_attr = {bank_from_account: @account.account_number, bank_to_account: 'xxxxxxxxx', amount: amount, bank_to_code: @bank_condition.external_bank_number}

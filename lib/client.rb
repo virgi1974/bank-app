@@ -2,7 +2,7 @@ require 'net/http'
 require 'net/https'
 
 module Client
-	class Ta
+	class Bank
 		include MessageHelper
 
 		TA_HOST = 'http://localhost:4000'
