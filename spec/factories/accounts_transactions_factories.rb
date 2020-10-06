@@ -6,7 +6,7 @@ FactoryBot.define do
 		transaction_type "EXTERNAL"
 		status "PENDING"
 		transefered_amount 40.3
-		bank_to_code "2220"
+		bank_to_code "2200"
 		bank_from_code "2100"
   end
 end
