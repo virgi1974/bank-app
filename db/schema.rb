@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_151733) do
+ActiveRecord::Schema.define(version: 2020_10_06_103401) do
 
   create_table "account_transactions", force: :cascade do |t|
     t.integer "account_id"
@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(version: 2020_10_04_151733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bank_id"], name: "index_customers_on_bank_id"
+  end
+
+  create_table "ta_bank_registers", force: :cascade do |t|
+    t.string "name"
+    t.string "bank_number"
+    t.string "host"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
